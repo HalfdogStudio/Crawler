@@ -4,6 +4,7 @@
 import requests
 import json
 import pickle
+import csv
 """
 我觉得我会用node来做这些？
 """
@@ -47,17 +48,22 @@ def request_job_list(pageIndex, pageSize):
         pass
 
 
-def save_as_csv():
+def save_as_csv(JOB_DICT):
     """字典是没有顺序的，但也不是随机的
     只要保证单次运行时写入顺序和排序是固定的就行
     """
     with open('alibaba.csv', 'wb') as f:
-        f.write(','.join(JOB_DICT.itervalues().next().keys()) + '\n')
+        csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        keys = JOB_DICT.itervalues().next().keys()
+        #keys.pop(keys.index(u'description'))
+        #keys.pop(keys.index(u'requirement'))
+        #keys = ['code', 'secondCategory', 'workExperience', 'workLocation', 'departmentName', 'departmentId', 'degree', 'name', 'firstCategory']
+        f.write(','.join(keys) + '\n')
         for k, v in JOB_DICT.iteritems():
-            f.write(','.join([unicode(v[x]).encode('utf-8').replace(',', '，') for x in v.keys()]) + '\n')
+            csv_writer.writerow([unicode(v[x]).encode('utf-8').replace(',', '，').replace('\r', '').replace('\n', '') for x in keys])
 
 
-def save_dict():
+def save_dict(JOB_DICT):
     """docstring for save_dict"""
     pickle.dump(JOB_DICT, open("alibaba.p", 'wb'))
 

@@ -1,0 +1,5 @@
+ggplot for python are painful with unicode data 
+
+it relates to matplotlib and pandas, I don't know what happens.
+
+So I choose R to plot

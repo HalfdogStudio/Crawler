@@ -6,7 +6,8 @@ import subprocess
 事业部数量
 """
 
-def stastic_department():
+
+def stastic_department(JOB_DICT):
     """docstring for stastic_department"""
     dep_dict = {}
     with open('department.csv', 'wb') as f:
@@ -15,8 +16,9 @@ def stastic_department():
                 dep_dict[v['departmentName']] = 1
             else:
                 dep_dict[v['departmentName']] += 1
+    return dep_dict
 
-def save_as_csv():
+def save_as_csv(dep_dict):
     """docstring for save_as_csv"""
     with open('department.csv', 'wb') as f:
         f.write('事业部' + ',' + '数量' + '\n')
@@ -24,7 +26,7 @@ def save_as_csv():
             f.write(','.join([k, str(v)]).encode('utf-8') + '\n')
 
 
-def relation():
+def relation(dep_dict):
     """docstring for relation"""
     entry_dict = {}
     with open("relation.dot", "wb") as f:
