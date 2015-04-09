@@ -19,7 +19,7 @@ TODO
 - [阿里](http://job.alibaba.com/zhaopin/index)
 - [百度](http://talent.baidu.com/baidu/web/index/CompbaiduIndex)
 - [腾讯](http://hr.tencent.com/index.php)
-- [美团](http://campus.meituan.com/)
+- [美团](http://www.hotjob.cn/wt/meituan/web/index?brandCode=meituan)
 - [爱奇艺](http://zhaopin.iqiyi.com/)
 - maybe more, just for fun
 

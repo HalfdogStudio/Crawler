@@ -53,6 +53,7 @@ def save_as_csv(JOB_DICT):
     只要保证单次运行时写入顺序和排序是固定的就行
     """
     with open('alibaba.csv', 'wb') as f:
+        # quotechar very important
         csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         keys = JOB_DICT.itervalues().next().keys()
         #keys.pop(keys.index(u'description'))
